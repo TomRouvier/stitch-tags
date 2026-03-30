@@ -36,8 +36,8 @@ export default function HomePage() {
         primaryCTA={{ label: "Découvrir nos solutions", href: "/solutions-physiques" }}
         secondaryCTA={{ label: "Voir la vidéo" }}
         image={{
-          src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCEo6ILpM-v-o76qGPNUD7HrUBCV0c2w-EPyRVMRE6uPq7zB1ZW6XSBtoA-ckeT5nPuaPp0WoQER2D4DZci_3Ma3ylHS9b84MbbwMC07Gt3WpULsW_x616yZDGT0i9fRTYbt4bFiGqO0WZzcm4VY_VZThiEmjvKZRg7wqKUEJjkJu3WPcBSBKBSqmsfY7SXvAcLSnhd3_EdJ0Y4EcgwiDhW6atImoP_vsc0QD-oK8SAEVDN8IXVe8QmmoVhDjtuV9JVZGHlpND8geY0",
-          alt: "Luxury perfume bottle with glowing smart tag",
+          src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDf6_lcAkHC0PZM8vrf_KHyqrWQRtUhrsGuKlcDHujaiQT6fjPzWDea3Gkt3_--tIJ4mbuczaXKgGjfph6qBsOZaRfk6civvB23oaZ2hClrxosvpu4ZxQhbivfVKyfpvIStihn7Oewltg6elMWtZhmhCd87OiB7qBMY_Uz6xvR2BC7FWnVLrc2oQr2R64psWdyB6V7ud-NTo66lRBu7JSWH9lRbBQ2Qi5Us3s_fvzPC3oMTlrPNMEhIiACB_35VHFa2rwLCK6xr2D2h",
+          alt: "High-tech robotic arm in industrial smart packaging facility",
         }}
         variant="overlay"
       />
