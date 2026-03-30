@@ -1,4 +1,7 @@
+"use client";
+
 import MaterialIcon from "@/components/ui/MaterialIcon";
+import { motion } from "framer-motion";
 
 interface Card {
   icon: string;
@@ -12,6 +15,16 @@ interface CardGridProps {
   variant?: "default" | "hover-invert" | "centered";
 }
 
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function CardGrid({
   cards,
   columns = 3,
@@ -23,10 +36,17 @@ export default function CardGrid({
 
   if (variant === "hover-invert") {
     return (
-      <div className={`grid ${gridCols} gap-8`}>
+      <motion.div
+        className={`grid ${gridCols} gap-8`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        variants={container}
+      >
         {cards.map((card) => (
-          <div
+          <motion.div
             key={card.title}
+            variants={item}
             className="bg-surface-container-low p-8 group hover:bg-primary transition-all duration-500 cursor-pointer flex flex-col h-80"
           >
             <MaterialIcon
@@ -39,18 +59,25 @@ export default function CardGrid({
             <p className="text-on-surface-variant group-hover:text-surface-variant font-body text-sm">
               {card.description}
             </p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     );
   }
 
   if (variant === "centered") {
     return (
-      <div className={`grid ${gridCols}`}>
+      <motion.div
+        className={`grid ${gridCols}`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        variants={container}
+      >
         {cards.map((card, i) => (
-          <div
+          <motion.div
             key={card.title}
+            variants={item}
             className={`p-12 flex flex-col items-center text-center ${
               i < cards.length - 1 ? "border-r border-outline-variant/20" : ""
             }`}
@@ -62,18 +89,25 @@ export default function CardGrid({
             <p className="font-body text-on-surface-variant text-sm leading-relaxed">
               {card.description}
             </p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     );
   }
 
   // Default
   return (
-    <div className={`grid ${gridCols} gap-8`}>
+    <motion.div
+      className={`grid ${gridCols} gap-8`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      variants={container}
+    >
       {cards.map((card) => (
-        <div
+        <motion.div
           key={card.title}
+          variants={item}
           className="bg-surface-container-low p-10 hover:bg-surface-container-lowest transition-colors group cursor-default"
         >
           <div className="mb-8">
@@ -85,8 +119,8 @@ export default function CardGrid({
           <p className="font-body text-on-surface-variant leading-relaxed">
             {card.description}
           </p>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }

@@ -4,6 +4,7 @@ import CardGrid from "@/components/sections/CardGrid";
 import SplitSection from "@/components/sections/SplitSection";
 import FeatureList from "@/components/sections/FeatureList";
 import MaterialIcon from "@/components/ui/MaterialIcon";
+import FadeIn from "@/components/motion/FadeIn";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -36,8 +37,8 @@ export default function HomePage() {
         primaryCTA={{ label: "Découvrir nos solutions", href: "/solutions-physiques" }}
         secondaryCTA={{ label: "Voir la vidéo" }}
         image={{
-          src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDf6_lcAkHC0PZM8vrf_KHyqrWQRtUhrsGuKlcDHujaiQT6fjPzWDea3Gkt3_--tIJ4mbuczaXKgGjfph6qBsOZaRfk6civvB23oaZ2hClrxosvpu4ZxQhbivfVKyfpvIStihn7Oewltg6elMWtZhmhCd87OiB7qBMY_Uz6xvR2BC7FWnVLrc2oQr2R64psWdyB6V7ud-NTo66lRBu7JSWH9lRbBQ2Qi5Us3s_fvzPC3oMTlrPNMEhIiACB_35VHFa2rwLCK6xr2D2h",
-          alt: "High-tech robotic arm in industrial smart packaging facility",
+          src: "/hero-home.webp",
+          alt: "Étuis et packaging premium de spiritueux — illustration du savoir-faire Autajon",
         }}
         variant="overlay"
       />
@@ -45,21 +46,23 @@ export default function HomePage() {
       {/* Sectors */}
       <section className="bg-surface py-24 px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-20">
-            <div className="lg:col-span-8">
-              <h2 className="font-headline font-bold text-4xl text-primary tracking-tight mb-4">
-                Une expertise multisectorielle.
-              </h2>
-              <p className="font-body text-on-surface-variant text-lg max-w-xl">
-                Nous concevons des écosystèmes connectés adaptés aux exigences de traçabilité et d&apos;authenticité des industries les plus prestigieuses.
-              </p>
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-20">
+              <div className="lg:col-span-8">
+                <h2 className="font-headline font-bold text-4xl text-primary tracking-tight mb-4">
+                  Une expertise multisectorielle.
+                </h2>
+                <p className="font-body text-on-surface-variant text-lg max-w-xl">
+                  Nous concevons des écosystèmes connectés adaptés aux exigences de traçabilité et d&apos;authenticité des industries les plus prestigieuses.
+                </p>
+              </div>
+              <div className="lg:col-span-4 flex justify-end">
+                <span className="font-label text-outline text-sm uppercase tracking-widest border-b border-outline-variant pb-2">
+                  Nos Secteurs D&apos;Activité
+                </span>
+              </div>
             </div>
-            <div className="lg:col-span-4 flex justify-end">
-              <span className="font-label text-outline text-sm uppercase tracking-widest border-b border-outline-variant pb-2">
-                Nos Secteurs D&apos;Activité
-              </span>
-            </div>
-          </div>
+          </FadeIn>
           <CardGrid cards={sectors} columns={4} variant="hover-invert" />
         </div>
       </section>
@@ -69,60 +72,68 @@ export default function HomePage() {
         imageFirst
         className="bg-surface-container py-24 px-8"
         media={
-          <div className="relative aspect-square">
-            <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMOF4hgzlV7DlLRH634TOaMoqUPgUh3gp9suOzLxIUWJczy3_G8dL8wP7Xr0CDdA_PqY4XyVWz8kNM8BjrC15EaXluckNo_Px0cUymsQMbBoULJ7Miy1TjbJaV2VFiIGjsaZI7un6oTYp0_XgOZjmJZsSDgYhPiyFhsuAhUz3lmpsWQcAKotYtbKPFMwvlSMG7WJ7XmrAPaXdondmkbBPLCCSGbfyKiqNYxHQSt_6HvMbFCmLIqczW9_u6y4q7PzfDBtSLVE6gI7VS"
-              alt="Industrial precision assembly"
-              fill
-              className="object-cover grayscale brightness-75"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-secondary p-8 flex flex-col justify-end text-white">
-              <span className="text-4xl font-extrabold mb-2">100%</span>
-              <span className="font-label text-xs uppercase tracking-widest opacity-80">
-                Garantie d&apos;Authenticité
-              </span>
+          <FadeIn direction="left" delay={0.2}>
+            <div className="relative aspect-square">
+              <Image
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMOF4hgzlV7DlLRH634TOaMoqUPgUh3gp9suOzLxIUWJczy3_G8dL8wP7Xr0CDdA_PqY4XyVWz8kNM8BjrC15EaXluckNo_Px0cUymsQMbBoULJ7Miy1TjbJaV2VFiIGjsaZI7un6oTYp0_XgOZjmJZsSDgYhPiyFhsuAhUz3lmpsWQcAKotYtbKPFMwvlSMG7WJ7XmrAPaXdondmkbBPLCCSGbfyKiqNYxHQSt_6HvMbFCmLIqczW9_u6y4q7PzfDBtSLVE6gI7VS"
+                alt="Industrial precision assembly"
+                fill
+                className="object-cover grayscale brightness-75"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-secondary p-8 flex flex-col justify-end text-white">
+                <span className="text-4xl font-extrabold mb-2">100%</span>
+                <span className="font-label text-xs uppercase tracking-widest opacity-80">
+                  Garantie d&apos;Authenticité
+                </span>
+              </div>
             </div>
-          </div>
+          </FadeIn>
         }
       >
-        <div>
-          <h2 className="font-headline font-bold text-5xl text-primary mb-12 tracking-tighter">
-            Expertise Totale : Du Tag au Cloud.
-          </h2>
-          <FeatureList items={expertise} variant="numbered" />
-        </div>
+        <FadeIn direction="right">
+          <div>
+            <h2 className="font-headline font-bold text-5xl text-primary mb-12 tracking-tighter">
+              Expertise Totale : Du Tag au Cloud.
+            </h2>
+            <FeatureList items={expertise} variant="numbered" />
+          </div>
+        </FadeIn>
       </SplitSection>
 
       {/* Trust */}
       <section className="bg-surface py-24 px-8 border-t border-outline-variant/10">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="font-label text-outline text-xs uppercase tracking-[0.3em] mb-12 block">
-            Ils nous font confiance
-          </span>
-          <div className="flex flex-wrap justify-center items-center gap-16 opacity-40 grayscale">
-            {["CHÂTEAU MARGAUX", "L'ORÉAL", "SANOFI", "LOUIS VUITTON"].map((brand) => (
-              <span key={brand} className="text-2xl font-black text-primary font-headline">{brand}</span>
-            ))}
-          </div>
-          <div className="mt-24 max-w-4xl mx-auto">
-            <div className="bg-surface-container-lowest p-12 relative">
-              <MaterialIcon
-                name="format_quote"
-                filled
-                className="absolute -top-6 left-1/2 -translate-x-1/2 text-6xl text-secondary/20"
-              />
-              <p className="text-2xl font-body italic text-primary leading-relaxed mb-8">
-                &ldquo;AEDS a révolutionné notre approche de la lutte contre la contrefaçon. Leur solution hybride physique-digitale est la plus robuste du marché pour nos spiritueux d&apos;exception.&rdquo;
-              </p>
-              <div>
-                <p className="font-headline font-bold text-primary">Jean-Pierre Lambert</p>
-                <p className="text-on-surface-variant text-sm font-label uppercase tracking-widest">
-                  Directeur Supply Chain, Groupe Excellence
+          <FadeIn>
+            <span className="font-label text-outline text-xs uppercase tracking-[0.3em] mb-12 block">
+              Ils nous font confiance
+            </span>
+            <div className="flex flex-wrap justify-center items-center gap-16 opacity-40 grayscale">
+              {["CHÂTEAU MARGAUX", "L'ORÉAL", "SANOFI", "LOUIS VUITTON"].map((brand) => (
+                <span key={brand} className="text-2xl font-black text-primary font-headline">{brand}</span>
+              ))}
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="mt-24 max-w-4xl mx-auto">
+              <div className="bg-surface-container-lowest p-12 relative">
+                <MaterialIcon
+                  name="format_quote"
+                  filled
+                  className="absolute -top-6 left-1/2 -translate-x-1/2 text-6xl text-secondary/20"
+                />
+                <p className="text-2xl font-body italic text-primary leading-relaxed mb-8">
+                  &ldquo;AEDS a révolutionné notre approche de la lutte contre la contrefaçon. Leur solution hybride physique-digitale est la plus robuste du marché pour nos spiritueux d&apos;exception.&rdquo;
                 </p>
+                <div>
+                  <p className="font-headline font-bold text-primary">Jean-Pierre Lambert</p>
+                  <p className="text-on-surface-variant text-sm font-label uppercase tracking-widest">
+                    Directeur Supply Chain, Groupe Excellence
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
     </>

@@ -1,12 +1,32 @@
+"use client";
+
 import Link from "next/link";
 import { navItems } from "@/lib/navigation";
 import NavLink from "./NavLink";
 import MobileMenu from "./MobileMenu";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Header() {
+  const { scrollY } = useScroll();
+  const bgOpacity = useTransform(scrollY, [0, 100], [0.5, 0.95]);
+  const py = useTransform(scrollY, [0, 100], [24, 12]);
+  const shadow = useTransform(scrollY, [0, 100], [
+    "0 0 0 rgba(0,23,54,0)",
+    "0 4px 30px rgba(0,23,54,0.08)",
+  ]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-surface/70 backdrop-blur-md">
-      <nav className="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
+      style={{
+        backgroundColor: `rgba(248, 249, 250, ${bgOpacity.get()})`,
+        boxShadow: shadow,
+      }}
+    >
+      <motion.nav
+        className="flex justify-between items-center w-full px-8 max-w-7xl mx-auto transition-[padding] duration-300"
+        style={{ paddingTop: py, paddingBottom: py }}
+      >
         <div className="flex items-center gap-8">
           <Link
             href="/"
@@ -28,7 +48,7 @@ export default function Header() {
             Contact
           </button>
         </div>
-      </nav>
-    </header>
+      </motion.nav>
+    </motion.header>
   );
 }
