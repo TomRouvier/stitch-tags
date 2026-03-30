@@ -33,15 +33,13 @@ export default function HeroSection({
             src={image.src}
             alt={image.alt}
             fill
-            className={`object-cover ${isDark ? "brightness-[0.4]" : "grayscale-[20%] contrast-[110%]"}`}
+            className={`object-cover ${isDark ? "brightness-[0.4]" : ""}`}
             priority
             sizes="100vw"
+            quality={90}
           />
           {!isDark && (
-            <>
-              <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
-              <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent" />
-            </>
+            <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent" />
           )}
           {isDark && <div className="absolute inset-0 bg-primary/10" />}
         </div>
