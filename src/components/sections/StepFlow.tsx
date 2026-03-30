@@ -44,8 +44,7 @@ export default function StepFlow({ steps }: StepFlowProps) {
   });
 
   return (
-    <div className="max-w-5xl mx-auto grid md:grid-cols-4 gap-4 relative">
-      {/* The grid with 4 cols handles 3 steps + 2 connectors in a 3+2=5 but since we use md:grid-cols-4 matching the source */}
+    <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-4 relative">
       {items}
     </div>
   );
